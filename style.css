@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-style: normal;
+  --color_fifth: #264653;
+  --color_fourth: #2a9d8f;
+  --color_third: #e9c46a;
+  --color_second: #f4a261;
+  --color_first: #e76f51;
+  color: var(--color_fifth);
+}
+
+.green {
+  color: green;
+}
+.red {
+  color: red;
+}
+
+#app {
+  background-color: var(--color_fifth);
+  min-height: 100vh;
+  /* width: 100vw; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  background-color: var(--color_third);
+  min-height: 20%;
+  min-width: 50%;
+  padding: 16px;
+  margin: 5%;
+  border-radius: 16px;
+  box-shadow: 0px 0px 8px 8px var(--color_second);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.container > .title {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.container > .info {
+  background-color: var(--color_first);
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 24px 8px 24px;
+  border-radius: 16px 16px 8px 8px;
+  box-shadow: 0px 0px 4px 1px var(--color_second);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.item {
+  background-color: var(--color_third);
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 24px 8px 24px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 4px 1px var(--color_second);
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.item:last-child {
+  border-radius: 8px 8px 16px 16px;
+}
+
+.item::after {
+	background: var(--color_fourth);
+  color: #264653;
+	border-radius: 8px 8px 8px 0px;
+	box-shadow: 1px 1px 20px 1px var(--color_fifth);
+	content: attr(data-tooltip);
+	margin-top: -40px;
+  left: 10%;
+	opacity: 0;
+	padding: 4px 8px;
+	position: absolute;
+	visibility: hidden;
+	transition: all 0.4s ease-in-out;
+}
+
+.item:hover {
+  background-color: var(--color_first);
+}
+
+.item:hover::after {
+	opacity: 1;
+	visibility: visible;
+}
+
+.item__head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.item__body {
+  height: 0%;
+  min-height: 0px;
+  width: 100%;
+  border-radius: 4px 4px 8px 8px;
+  margin-top: 0px;
+  transition: all 0.4s ease-in-out;
+}
+.active > .item__body{
+  height: 100%; /*100%*/
+  min-height: 50px;
+  width: 100%;
+  margin-top: 16px; /*16px*/
+  background-color: var(--color_second);
+}
