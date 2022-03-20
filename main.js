@@ -13,12 +13,12 @@ const getOldUrl = (data) => {
 
 /* getting data for past 10 days */
 const getDataFewDays = async (data, days) => {
-  let oldUrlArr = [];
-  let oldDataArr = [];
+  const oldUrlArr = [];
+  const oldDataArr = [];
   let oldUrl = getOldUrl(data);
   oldUrlArr.push(oldUrl);
   for (let i = days; i > 0; i--) {
-    let oldData = await getData(oldUrl);
+    const oldData = await getData(oldUrl);
     oldDataArr.push(oldData);
     oldUrl = getOldUrl(oldData);
     oldUrlArr.push(oldUrl);
@@ -86,7 +86,7 @@ const createChildElement = (dataArr) => {
 /* listeners */
 const addListeners = () => {
   container.addEventListener('click', (e) => {
-    let element = e.target.closest('.item');
+    const element = e.target.closest('.item');
     if (element) {
       element.classList.toggle('active');
     } else {
